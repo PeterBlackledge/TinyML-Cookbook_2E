@@ -18,6 +18,8 @@ def gdrive_upload(obj, filename, gdrive_id):
   gfile.SetContentFile(filename)
   gfile.Upload()
 
+# argparse usage is not acknowledged in the book text
+# requirement to provide CL arguments is not explained
 parser = ArgumentParser()
 parser.add_argument("--baudrate", dest="baudrate", help="Baudrate", type=int, required=True)
 parser.add_argument("--port", dest="port", help="Port", type=str, required=True)
@@ -38,7 +40,9 @@ ser.flushInput()
 text = ""
 
 start_s   = time.time()
+# elapsed_s used here
 elapsed_s = 0
+# typo: 'elapsed' should be 'elapsed_s' (twice) in while block
 while(elapsed < max_time_s):
   text   += serial_readline(ser)
   end_s   = time.time()
